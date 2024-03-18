@@ -11,7 +11,7 @@ public class Product
     public string Name { get; set; }
 
     [JsonProperty("price")]
-    public double Price { get; set; }
+    public float Price { get; set; }
 
     [JsonProperty("manufacturer")]
     public string Manufacturer { get; set; }
@@ -19,3 +19,4 @@ public class Product
     [JsonProperty("type_name")]
     public string TypeName { get; set; }
 }
+
