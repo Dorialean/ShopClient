@@ -18,6 +18,8 @@ public class User
 
     [JsonProperty("token")] public string? Token { get; set; }
 
+    private Logger? Logger { get; set; }
+
     public User()
     {
         var faker = new Faker();
@@ -25,6 +27,11 @@ public class User
         Email = faker.Internet.Email();
         Password = faker.Internet.Password();
         DeliveryAddress = faker.Address.FullAddress();
+    }
+
+    public void SetLogger(Logger logger)
+    {
+        Logger = logger;
     }
 
     private async Task<HttpResponseMessage> SendRequestWithLoggingAsync(HttpClient client, HttpRequestMessage request)

@@ -1,9 +1,12 @@
-class Logger
+namespace ShopClient;
+
+public class Logger(string logFilePath)
 {
-    public static void LogToFile(string message)
+    string LogFilePath { get; set; } = logFilePath;
+
+    public void LogToFile(string message)
     {
-        var logFilePath = "api_calls_log.log";
-        var logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}: {message}\n";
-        File.AppendAllText(logFilePath, logEntry);
+        var logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fffff}: {message}\n";
+        File.AppendAllText(LogFilePath, logEntry);
     }
 }
